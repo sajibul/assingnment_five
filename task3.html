@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML FORM</title>
+</head>
+<body>
+    <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+        <label for="name">Name</label>
+        <input type="text" name="name" value=""><br><br>
+        <label for="email">Email</label>
+        <input type="text" name="email" value=""><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      $name = $_POST['name'];
+      $email = $_POST['email'];
+      if (empty($name)) {
+        echo "<h3> Name is empty  </h3>";
+      } else {
+        echo "<h3>$name</h3>";
+      }
+    //   echo "<h3><br></h3>";
+      if (empty($email)) {
+        echo "<h3> Email is empty  </h3>";
+      } else {
+        echo "<h3> $email </h3>";
+      }
+    }
+    ?>
+</body>
+</html>
